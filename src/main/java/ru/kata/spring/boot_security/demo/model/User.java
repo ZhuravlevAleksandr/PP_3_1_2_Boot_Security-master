@@ -5,7 +5,6 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Set;
@@ -22,6 +21,7 @@ public class User implements UserDetails {
     private Long id;
     private String name;
     private String surname;
+    private int age;
     private String email;
     private String password;
 

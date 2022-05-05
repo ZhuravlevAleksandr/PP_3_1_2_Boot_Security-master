@@ -1,40 +1,29 @@
 package ru.kata.spring.boot_security.demo.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
-import ru.kata.spring.boot_security.demo.repository.RoleRepository;
 import ru.kata.spring.boot_security.demo.repository.UserRepository;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Service
-@Slf4j
 public class UserService {
 
     private final UserRepository userRepository;
     private final RoleService roleService;
 
     @Autowired
-    public UserService(UserRepository userRepository, RoleRepository roleRepository, RoleService roleService) {
+    public UserService(UserRepository userRepository, RoleService roleService) {
         this.userRepository = userRepository;
         this.roleService = roleService;
     }
 
-    public User findById(Long id) {
-        User user = userRepository.findById(id).orElse(null);
-        log.info("UserService. Get user by id : {} ", id);
-        return user;
-    }
-
     public List<User> findAll() {
         List<User> allUsers = userRepository.findAll();
-        log.info("Get all users");
         return allUsers;
     }
 
